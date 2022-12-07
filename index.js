@@ -6,8 +6,8 @@ const cors = require('cors');
 require('./startup/config')();
 require('./startup/logging')();
 require('./startup/database')();
-require('./startup/routes')(app);
 require('./startup/production')(app);
+require('./startup/routes')(app);
 
 app.use(cors);
 
