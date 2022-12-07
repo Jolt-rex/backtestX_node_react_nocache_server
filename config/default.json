@@ -1,3 +1,4 @@
 {
-    "db": "mongodb://localhost/backtestX-nocache"
+    "db": "mongodb://localhost/backtestX-nocache",
+    "jwtPrivateKey": ""
 }
