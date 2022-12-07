@@ -9,6 +9,7 @@
   "author": "Jolt-rex",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "compression": "^1.7.4",
     "config": "^3.3.8",
     "cors": "^2.8.5",
