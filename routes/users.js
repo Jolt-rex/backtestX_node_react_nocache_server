@@ -14,10 +14,10 @@ router.post('/', async (req, res) => {
     const { error } = validateUser(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
-    let user = await User.findOne({ email: req.body.email });
+    let user = await User.findOne({ $or: [{ email: req.body.email }, { username: req.body.username }]});
     if (user) return res.status(400).send('User already registered');
 
-    user = new User({ username: req.body.username, email: req.body.email, password: req.body.password });
+    user = new User({ username: req.body.username, email: req.body.email, password: req.body.password, registeredAt: new Date(), lastLogon: new Date() });
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
 
