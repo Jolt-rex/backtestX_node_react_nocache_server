@@ -34,11 +34,12 @@ const userSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    strategies: {
-        type: Array,
-        required: true,
-        default: []
-    }
+    strategies: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref: 'Strategy'
+        },
+    ]
 });
 
 userSchema.methods.generateAuthToken = function() {
